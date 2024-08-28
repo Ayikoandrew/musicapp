@@ -7,7 +7,7 @@ from server.models.user import User
 from server.pydantic_schema.create_user import CreateUser
 
 
-router = APIRouter()
+router = APIRouter(tags=["Authentication"])
 
 
 @router.post("/signup")
@@ -25,7 +25,7 @@ def signup(user: CreateUser, db: Session = Depends(get_db)):
     )
 
     user_db = User(
-        id=uuid.uuid4(),
+        id=str(uuid.uuid4()),
         name=user.name,
         email=user.email,
         password=hash_password,
