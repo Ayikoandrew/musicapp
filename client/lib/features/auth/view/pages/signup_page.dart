@@ -1,6 +1,9 @@
 import 'package:client/features/auth/view/widgets/auth_button.dart';
 import 'package:client/features/auth/view/widgets/custom_page.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
+
+import '../../../../core/theme/app_palette.dart';
 
 class SignupPage extends StatefulWidget {
   const SignupPage({super.key});
@@ -36,11 +39,20 @@ class _SignupPageState extends State<SignupPage> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Text(
-                  'Sign Up',
-                  style: TextStyle(
-                    fontSize: 50,
-                    fontWeight: FontWeight.bold,
+                const SizedBox(
+                  height: 40,
+                ),
+                Animate(
+                  effects: [
+                    FadeEffect(duration: 500.ms),
+                    ScaleEffect(delay: 500.ms),
+                  ],
+                  child: const Text(
+                    'Sign Up',
+                    style: TextStyle(
+                      fontSize: 50,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
                 const SizedBox(
@@ -75,6 +87,22 @@ class _SignupPageState extends State<SignupPage> {
                 ),
                 const AuthButton(
                   data: 'Sign Up',
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                RichText(
+                  text: const TextSpan(
+                    text: 'Already registered? ',
+                    children: [
+                      TextSpan(
+                        text: 'Sign In',
+                        style: TextStyle(
+                          color: Pallete.gradient2,
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ],
             ),
