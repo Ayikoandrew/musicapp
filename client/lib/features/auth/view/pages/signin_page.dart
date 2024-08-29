@@ -69,7 +69,7 @@ class _SigninPageState extends State<SigninPage> {
               text: 'Not registered? ',
               children: [
                 TextSpan(
-                  text: 'Sign Un',
+                  text: 'Sign Up',
                   style: TextStyle(
                     color: Pallete.gradient2,
                   ),
