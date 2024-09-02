@@ -10,7 +10,7 @@ class AppPalette {
       borderRadius: BorderRadius.circular(10.0));
 
   static final darkTheme = ThemeData.dark().copyWith(
-    scaffoldBackgroundColor: Colors.black87,
+    scaffoldBackgroundColor: Pallete.backgroundColor,
     inputDecorationTheme: InputDecorationTheme(
       contentPadding: const EdgeInsets.all(27.0),
       enabledBorder: _border(Pallete.borderColor),

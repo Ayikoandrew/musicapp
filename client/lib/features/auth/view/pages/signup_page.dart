@@ -1,7 +1,10 @@
+import 'package:client/features/auth/repositories/auth_remote_repository.dart';
+import 'package:client/features/auth/view/pages/signin_page.dart';
 import 'package:client/features/auth/view/widgets/auth_button.dart';
 import 'package:client/features/auth/view/widgets/custom_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:fpdart/fpdart.dart';
 
 import '../../../../core/theme/app_palette.dart';
 
@@ -42,18 +45,17 @@ class _SignupPageState extends State<SignupPage> {
                 const SizedBox(
                   height: 40,
                 ),
-                Animate(
+                const Text(
+                  'Sign Up',
+                  style: TextStyle(
+                    fontSize: 50,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ).animate(
                   effects: [
                     FadeEffect(duration: 500.ms),
                     ScaleEffect(delay: 500.ms),
                   ],
-                  child: const Text(
-                    'Sign Up',
-                    style: TextStyle(
-                      fontSize: 50,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
                 ),
                 const SizedBox(
                   height: 30,
@@ -62,7 +64,6 @@ class _SignupPageState extends State<SignupPage> {
                   hintText: 'Name',
                   controller: nameController,
                   obscureText: false,
-                  onTap: () {},
                 ),
                 const SizedBox(
                   height: 15,
@@ -71,7 +72,6 @@ class _SignupPageState extends State<SignupPage> {
                   hintText: 'Email',
                   controller: emailControler,
                   obscureText: false,
-                  onTap: () {},
                 ),
                 const SizedBox(
                   height: 15,
@@ -80,28 +80,50 @@ class _SignupPageState extends State<SignupPage> {
                   hintText: 'Password',
                   controller: passwordController,
                   obscureText: true,
-                  onTap: () {},
                 ),
                 const SizedBox(
                   height: 30,
                 ),
-                const AuthButton(
+                AuthButton(
                   data: 'Sign Up',
+                  onPressed: () async {
+                    final res = await AuthRemoteRepository().signup(
+                      name: nameController.text,
+                      email: emailControler.text,
+                      password: passwordController.text,
+                    );
+
+                    final val = switch (res) {
+                      Left(value: final l) => l,
+                      Right(value: final r) => r.toString(),
+                    };
+                    print(val);
+                  },
                 ),
                 const SizedBox(
                   height: 10,
                 ),
-                RichText(
-                  text: const TextSpan(
-                    text: 'Already registered? ',
-                    children: [
-                      TextSpan(
-                        text: 'Sign In',
-                        style: TextStyle(
-                          color: Pallete.gradient2,
-                        ),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const SigninPage(),
                       ),
-                    ],
+                    );
+                  },
+                  child: RichText(
+                    text: const TextSpan(
+                      text: 'Already registered? ',
+                      children: [
+                        TextSpan(
+                          text: 'Sign In',
+                          style: TextStyle(
+                            color: Pallete.gradient2,
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ],
