@@ -93,11 +93,11 @@ class _SignupPageState extends State<SignupPage> {
                       password: passwordController.text,
                     );
 
+                    // ignore: unused_local_variable
                     final val = switch (res) {
                       Left(value: final l) => l,
                       Right(value: final r) => r.toString(),
                     };
-                    print(val);
                   },
                 ),
                 const SizedBox(
