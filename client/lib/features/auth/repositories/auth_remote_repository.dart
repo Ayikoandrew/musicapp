@@ -23,7 +23,7 @@ class AuthRemoteRepository {
     try {
       final response = await http.post(
         Uri.parse(
-          'http://${ServerConstants.server}/auth/signup',
+          'http://${ServerConstants.server}/signup',
         ),
         headers: {
           'Content-Type': 'application/json',
@@ -55,7 +55,7 @@ class AuthRemoteRepository {
   }) async {
     try {
       final response = await http.post(
-        Uri.parse('http://${ServerConstants.server}/auth/login'),
+        Uri.parse('http://${ServerConstants.server}/login'),
         headers: {
           'Content-Type': 'application/json',
         },
@@ -72,9 +72,37 @@ class AuthRemoteRepository {
       if (response.statusCode != 202) {
         return Left(AppFailure(response.body));
       }
-      return Right(UserModel.fromMap(resFromMap));
+      return Right(
+        UserModel.fromMap(resFromMap['user']).copyWith(
+          token: resFromMap['token'],
+        ),
+      );
     } catch (e) {
       return Left(AppFailure(e.toString()));
+    }
+  }
+
+  Future<Either<Failure, UserModel>> getCurrenUser(
+      {required String token}) async {
+    try {
+      final res = await http.get(
+        Uri.parse('http://${ServerConstants.server}/auth/'),
+        headers: {
+          'Content-Type': 'application/json',
+          'x-auth-token': token,
+        },
+      );
+
+      final resMapBody = jsonDecode(res.body) as Map<String, dynamic>;
+
+      if (res.statusCode != 200) {
+        Left(Failure(resMapBody['detail']));
+      }
+      return Right(UserModel.fromMap(resMapBody).copyWith(
+        token: token,
+      ));
+    } catch (e) {
+      return Left(Failure(e.toString()));
     }
   }
 }
