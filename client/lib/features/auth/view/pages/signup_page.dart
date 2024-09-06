@@ -1,3 +1,4 @@
+import 'package:client/core/utils.dart';
 import 'package:client/core/widgets/loader.dart';
 import 'package:client/features/auth/view/pages/signin_page.dart';
 import 'package:client/features/auth/view/widgets/auth_button.dart';
@@ -32,22 +33,19 @@ class _SignupPageState extends ConsumerState<SignupPage> {
 
   @override
   Widget build(BuildContext context) {
-    final isLoading = ref.watch(authViewmodelProvider)?.isLoading == true;
+    final isLoading = ref.watch(
+      authViewmodelProvider.select((val) => val?.isLoading == true),
+    );
 
     ref.listen(
       authViewmodelProvider,
       (_, next) {
         next?.when(
           data: (data) {
-            ScaffoldMessenger.of(context)
-              ..hideCurrentSnackBar()
-              ..showSnackBar(
-                const SnackBar(
-                  content: Text(
-                    'Sign up was successfull, login',
-                  ),
-                ),
-              );
+            showSnackbar(
+              context,
+              'Sign up was successfull, login',
+            );
             Navigator.push(
               context,
               MaterialPageRoute(
@@ -56,15 +54,10 @@ class _SignupPageState extends ConsumerState<SignupPage> {
             );
           },
           error: (error, stackTrace) {
-            ScaffoldMessenger.of(context)
-              ..hideCurrentSnackBar()
-              ..showSnackBar(
-                SnackBar(
-                  content: Text(
-                    error.toString(),
-                  ),
-                ),
-              );
+            showSnackbar(
+              context,
+              error.toString(),
+            );
           },
           loading: () {},
         );
