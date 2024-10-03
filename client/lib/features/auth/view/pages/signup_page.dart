@@ -2,7 +2,7 @@ import 'package:client/core/utils.dart';
 import 'package:client/core/widgets/loader.dart';
 import 'package:client/features/auth/view/pages/signin_page.dart';
 import 'package:client/features/auth/view/widgets/auth_button.dart';
-import 'package:client/features/auth/view/widgets/custom_page.dart';
+import 'package:client/core/widgets/custom_page.dart';
 import 'package:client/features/auth/viewmodel/auth_viewmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';

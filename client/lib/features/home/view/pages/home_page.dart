@@ -6,6 +6,10 @@ class HomePage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return const Scaffold();
+    return const Scaffold(
+      body: Center(
+        child: Text('Hello'),
+      ),
+    );
   }
 }

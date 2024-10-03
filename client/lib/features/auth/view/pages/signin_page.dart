@@ -1,7 +1,7 @@
 import 'package:client/core/utils.dart';
 import 'package:client/core/widgets/loader.dart';
 import 'package:client/features/auth/view/widgets/auth_button.dart';
-import 'package:client/features/auth/view/widgets/custom_page.dart';
+import 'package:client/core/widgets/custom_page.dart';
 import 'package:client/features/auth/viewmodel/auth_viewmodel.dart';
 import 'package:client/features/home/view/pages/home_page.dart';
 import 'package:flutter/material.dart';
