@@ -23,25 +23,24 @@ Installation
 
     bash
 
-git clone https://github.com/Ayikoandrew/musicapp.git
+"""git clone https://github.com/Ayikoandrew/musicapp.git"""
 
 Navigate to the client directory:
 
 bash
 
-cd client
-
+"""cd client"""
 Install dependencies:
 
 bash
 
-flutter pub get
+"""flutter pub get"""
 
 Run the app:
 
 bash
 
-    flutter run
+    """flutter run"""
 
 API Documentation
 
