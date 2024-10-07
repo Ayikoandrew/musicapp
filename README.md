@@ -17,7 +17,8 @@ Database: PostgreSQL
 Installation
 
 Clone the repository:
-git clone https://github.com/Ayikoandrew/musicapp.git
+
+    git clone https://github.com/Ayikoandrew/musicapp.git
 
 Navigate to the client directory:
 
