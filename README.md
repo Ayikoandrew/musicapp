@@ -20,27 +20,22 @@ Tech Stack
 Installation
 
     Clone the repository:
-
     bash
-
-'''git clone https://github.com/Ayikoandrew/musicapp.git
+    '''git clone https://github.com/Ayikoandrew/musicapp.git
 
 Navigate to the client directory:
 
 bash
-
 '''cd client
 Install dependencies:
 
 bash
-
 '''flutter pub get
 
 Run the app:
 
 bash
-
-    '''flutter run
+'''flutter run
 
 API Documentation
 
