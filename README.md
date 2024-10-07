@@ -1,41 +1,35 @@
 # musicapp
 
-MusicApp
-About
-
 MusicApp is a cross-platform application for managing and sharing music. It allows users to upload, stream, and organize their music in one place. Built with Flutter, the app focuses on a seamless user experience and high performance across multiple devices.
 Features
 
-    Music Upload: Easily upload music files and create your personal library.
-    Streaming: Stream music in real-time from anywhere.
-    Playlists: Organize your favorite tracks into custom playlists.
-    Cross-Platform: Runs on iOS, Android, and web.
+Music Upload: Easily upload music files and create your personal library.
+Streaming: Stream music in real-time from anywhere.
+Playlists: Organize your favorite tracks into custom playlists.
+Cross-Platform: Runs on iOS, Android, and web.
 
 Tech Stack
 
-    Frontend: Flutter (Dart)
-    Backend: Python (FastAPI)
-    Database: PostgreSQL
+Frontend: Flutter (Dart)
+Backend: Python (FastAPI)
+Database: PostgreSQL
 
 Installation
 
-    Clone the repository:
-    bash
-    '''git clone https://github.com/Ayikoandrew/musicapp.git
+Clone the repository:
+git clone https://github.com/Ayikoandrew/musicapp.git
 
 Navigate to the client directory:
 
-bash
-'''cd client
+    cd client
+
 Install dependencies:
 
-bash
-'''flutter pub get
+    flutter pub get
 
 Run the app:
 
-bash
-'''flutter run
+    flutter run
 
 API Documentation
 
