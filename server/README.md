@@ -36,8 +36,11 @@ To generate the secret key. Run this on your terminal
    openssl rand -hex 32
    
 4. Usage
+   To run the server
    
-   Once the server is running, you can access the API at http://localhost:8000. Use tools like Postman or curl to interact with the endpoints.
+   ```bash
+   uv run fastapi dev src/server/main.py 
+   
 
 6. API Endpoints
 
