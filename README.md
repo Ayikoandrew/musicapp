@@ -1,6 +1,8 @@
 # musicapp
 
 MusicApp is a cross-platform application for managing and sharing music. It allows users to upload, stream, and organize their music in one place. Built with Flutter, the app focuses on a seamless user experience and high performance across multiple devices.
+
+
 Features
 
 Music Upload: Easily upload music files and create your personal library.
