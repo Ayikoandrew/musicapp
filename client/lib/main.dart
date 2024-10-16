@@ -4,7 +4,6 @@ import 'package:client/features/auth/view/pages/signup_page.dart';
 import 'package:client/features/auth/viewmodel/auth_viewmodel.dart';
 // ignore: unused_import
 import 'package:client/features/home/view/pages/home_page.dart';
-import 'package:client/features/home/view/pages/upload_music_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -35,7 +34,7 @@ class MyApp extends ConsumerWidget {
       title: 'Music App',
       theme: AppPalette.darkTheme,
       // ignore: unnecessary_null_comparison
-      home: currentUser == null ? const SignupPage() : const UploadMusicPage(),
+      home: currentUser == null ? const SignupPage() : const HomePage(),
     );
   }
 }

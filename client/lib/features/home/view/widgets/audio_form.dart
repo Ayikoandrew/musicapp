@@ -24,7 +24,9 @@ class _AudioFormState extends State<AudioForm> {
   }
 
   void initAudioPlayer() async {
-    await playerController.preparePlayer(path: widget.path);
+    await playerController.preparePlayer(
+      path: widget.path,
+    );
   }
 
   @override
